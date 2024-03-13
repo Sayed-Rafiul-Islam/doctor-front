@@ -55,7 +55,7 @@ export const ReviewCarousel : React.FC<ReviewCarouselProps> = ({
                         <div className="flex items-center">
                         <h1 className="text-3xl font-bold text-primary mr-2">{name}</h1>
                             {
-                              Array.from({ length: rating }).map(() => <Star className="border-none" fill='#f59e0b' />
+                              Array.from({ length: rating }).map((_,index) => <Star key={index} className="border-none" fill='#f59e0b' />
                                 
                           )}
                         </div>
