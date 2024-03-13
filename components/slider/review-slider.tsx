@@ -51,9 +51,9 @@ export const ReviewCarousel : React.FC<ReviewCarouselProps> = ({
                   <div className="relative img-container overflow-hidden" >
                     <Image className="img" fill src={imageUrl} alt="human" />
                     <div className="black-overlay">
-                      <div className="lg:mt-80 lg:pt-20 md:mt-80 md:pt-20 mt-60 ml-4">
+                      <div className="black">
                         <div className="flex items-center">
-                        <h1 className="text-3xl font-bold text-primary mr-2">{name}</h1>
+                        <h1 className="lg:text-3xl md:text-3xl text-xl font-bold text-primary mr-2">{name}</h1>
                             {
                               Array.from({ length: rating }).map((_,index) => <Star key={index} className="border-none" fill='#f59e0b' />
                                 
