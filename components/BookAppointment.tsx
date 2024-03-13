@@ -56,7 +56,7 @@ const BookAppointment = () => {
     const isPastDay = (day : any) => day < new Date()
 
     const handleBooking = async () => {
-        const data = await axios.post(`http://localhost:5000/api/appointments`,{name,email,date,selectedSlot})
+        const data = await axios.post(`https://doctor-portfolio-server.vercel.app/api/appointments`,{name,email,date,selectedSlot})
     }
     return ( 
         <div className="lg:ml-20 mx-10 mt-10">

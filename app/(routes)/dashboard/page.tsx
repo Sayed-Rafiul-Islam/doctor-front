@@ -8,6 +8,14 @@ import { Trash, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+interface AppointmentProps {
+    name : string,
+    email : string,
+    date : string,
+    selectedSlot : string,
+    _id : string
+}
+
 const Dashboard = () => {
 
     const router = useRouter()
@@ -25,7 +33,7 @@ const Dashboard = () => {
             try {
                 setOpen(false)
                 setLoading(true)
-                const {data} = await axios(`http://localhost:5000/api/getAppointments?token=${token}`)
+                const {data} = await axios(`https://doctor-portfolio-server.vercel.app/api/getAppointments?token=${token}`)
                 setAppointments(data)
                 setLoading(false)
             } catch (error) {
@@ -67,7 +75,7 @@ const Dashboard = () => {
                 {   !loading ? 
                     <>
                        { appointments &&
-                    appointments.map(({name,email,date,selectedSlot,_id},index) => 
+                    appointments.map(({name,email,date,selectedSlot,_id} : AppointmentProps,index) => 
                     <div className="flex justify-between border-b border-r border-cyan-500 rounded-md mx-auto w-3/4 my-5 p-4 bg-cyan-400 bg-opacity-10" key={_id}>
                         <div className="">
                             <h1 >Appointment No : <span className="font-semibold text-black">{index+1}</span></h1>
