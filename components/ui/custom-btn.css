@@ -1,0 +1,40 @@
+.container {
+    position: relative;
+    border: 1px solid #06b6d4;
+    border-radius: 50px;
+    height: 45px;
+    width: 120px;
+    overflow: hidden;
+}
+
+.btn {
+    width: 120px;
+    background: #06b6d4;
+    color: white;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    transition-duration: .2s;
+}
+.btn1 {
+    width: 120px;
+    color: #06b6d4;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 47px;
+    left: 0;    
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+
+.container:hover .btn {
+    top: -47px;
+}
+.container:hover .btn1 {
+    top: 0;
+}
