@@ -23,7 +23,7 @@ const Services = () => {
                     <CustomBtn text="Services" />
                 </div>
             </div>
-            <div className="relative lg:h-[400px] lg:w-[600px] md:w-[500px] md:h-[300px] w-[400px] h-[250px]">
+            <div className="relative lg:h-[400px] lg:w-[600px] md:w-[500px] md:h-[300px] w-full h-[200px]">
                 <Image className="rounded-lg shadow-lg" fill src={service} alt="service" />
             </div>
         </div>

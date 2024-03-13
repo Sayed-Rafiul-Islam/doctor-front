@@ -33,7 +33,7 @@ const Dashboard = () => {
             try {
                 setOpen(false)
                 setLoading(true)
-                const {data} = await axios(`https://doctor-portfolio-server.vercel.app/api/getAppointments?token=${token}`)
+                const {data} = await axios(`http://localhost:5000/api/getAppointments?token=${token}`)
                 setAppointments(data)
                 setLoading(false)
             } catch (error) {
