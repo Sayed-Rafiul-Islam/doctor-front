@@ -52,12 +52,14 @@ export const ReviewCarousel : React.FC<ReviewCarouselProps> = ({
                     <Image className="img" fill src={imageUrl} alt="human" />
                     <div className="black-overlay">
                       <div className="black">
-                        <div className="flex items-center">
+                        <div className="flex lg:flex-row md:flex-row flex-col">
                         <h1 className="lg:text-3xl md:text-3xl text-xl font-bold text-primary mr-2">{name}</h1>
+                            <div className="flex">
                             {
                               Array.from({ length: rating }).map((_,index) => <Star key={index} className="border-none" fill='#f59e0b' />
                                 
                           )}
+                            </div>
                         </div>
                         <p className="text-xs w-5/6 text-slate-300"><i>{review}</i></p>
                       </div>
