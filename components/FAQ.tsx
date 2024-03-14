@@ -61,7 +61,7 @@ const FAQ = () => {
             <div className="relative online w-1/2">
                 <Image className="rounded-xl shadow-lg" fill src={onlineConsult} alt="image" />
                 <div className="consult-cover">
-                    <h3 className="text-white text-center"><i>I will be there for you whenever you need me&quot;</i></h3>
+                    <h3 className="text-white text-center"><i>&quot;I will be there for you whenever you need me&quot;</i></h3>
                 </div>
             </div>
             <div className="w-1/2 consult-text">

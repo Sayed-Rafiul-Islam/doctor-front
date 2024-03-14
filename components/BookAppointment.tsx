@@ -59,18 +59,18 @@ const BookAppointment = () => {
         const data = await axios.post(`http://localhost:5000/api/appointments`,{name,email,date,selectedSlot})
     }
     return ( 
-        <div className="lg:ml-20 mx-10 mt-10">
+        <div className="booking-card">
+            <div className="flex items-center justify-center mt-10">
+                <h1 className="my-5 font-bold text-primary lg:text-4xl md:text-3xl text-2xl">Book Appointment</h1>
+            </div>
                 <label className="opacity-70">Name</label>
-                <Input onChange={(e)=>setName(e.target.value)} value={name} required className="lg:w-1/2 md:w-3/4 w-full mb-5 mt-2" placeholder="John doe" />
+                <Input onChange={(e)=>setName(e.target.value)} value={name} required className="" placeholder="John doe" />
                 <label className="opacity-70">Email</label>
-                <Input onChange={(e)=>setEmail(e.target.value)} value={email} required className="lg:w-1/2 md:w-3/4 w-full mt-2" placeholder="john@gmail.com" />
+                <Input onChange={(e)=>setEmail(e.target.value)} value={email} required className="" placeholder="john@gmail.com" />
                 <div className="flex justify-center">
                 <Dialog>
                     <DialogTrigger 
                     className="dialogue-trigger dialogue-trigger-btn border-b-2 border-primary text-primary font-semibold py-2 lg:px-32 mx-2 px-20 my-5 rounded-lg"
-                    // className="border-b border-primary 
-                    // hover:bg-gradient-to-tr hover:from-blue-800 hover:via-blue-400 hover:to-primary
-                    // hover:text-white rounded-sm transition-all"
                     >
                         Book
                     </DialogTrigger>
@@ -80,7 +80,7 @@ const BookAppointment = () => {
                         <DialogHeader>
                             <DialogTitle className="text-red-500">Cannot Book Appointment</DialogTitle>
                         </DialogHeader>
-                        <DialogDescription>
+                        <DialogDescription className="text-center lg:text-left">
                             Fill in all the fields
                         </DialogDescription>
                         <DialogFooter>
@@ -95,7 +95,7 @@ const BookAppointment = () => {
                         <DialogHeader>
                         <DialogTitle className="text-center">Book Appointment</DialogTitle>
                         <DialogDescription>
-                            <div className="flex items-center justify-center gap-2">
+                            <div className="flex lg:flex-row md:flex-row flex-col overflow-scroll items-center justify-center gap-2">
                                 {/* calender */}
                                 <div className="flex flex-col gap-3 items-baseline">
                                     <h2 className="flex gap-2 items-center">
@@ -131,12 +131,11 @@ const BookAppointment = () => {
                             </div>
                         </DialogDescription>
                         </DialogHeader>
-                        <DialogFooter>
+                        <DialogFooter className="mx-auto lg:mx-0 md:mx-0">
                             <DialogClose>
                                 <Button className="mr-4" type="button" variant='destructive'>Close</Button>
                                 <Button onClick={handleBooking} type="button" variant='default'>Submit</Button>
                             </DialogClose>
-                            
                         </DialogFooter>
                     </DialogContent>
                     }
