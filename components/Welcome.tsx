@@ -13,7 +13,7 @@ const Welcome = () => {
             <div className='absolute welcome-text'>
               <div className='w-2/3'>
                 <h1 className='text-6xl doc-talk '>
-                  Im doctor <br /><b className='text-primary'>John Doe</b>
+                  I&apos;m doctor <br /><b className='text-primary'>John Doe</b>
                 </h1>
                 <p className='text-sm text-justify mt-6 mb-5'>I give all clients of my center a 30 percent discount on the vaccine against covid 19.</p>
                 <div onClick={()=>router.push('/about')}>
