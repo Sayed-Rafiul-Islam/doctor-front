@@ -1,3 +1,4 @@
+import BookAppointment from "@/components/BookAppointment";
 import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
 import Reviews from "@/components/Reviews";
@@ -12,6 +13,9 @@ export default function Home() {
       <Services />
       <Reviews />
       <FAQ />
+      <div className="shadow-md rounded-lg mx-auto lg:w-2/3 md:w-3/4 mt-20">
+            <BookAppointment />
+        </div>
     </div>
   );
 }
