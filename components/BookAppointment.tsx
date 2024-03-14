@@ -95,7 +95,7 @@ const BookAppointment = () => {
                         <DialogHeader>
                         <DialogTitle className="text-center">Book Appointment</DialogTitle>
                         <DialogDescription>
-                            <div className="flex lg:flex-row md:flex-row flex-col overflow-scroll items-center justify-center gap-2">
+                            <div className="flex lg:flex-row md:flex-row flex-col max-h-[400px] overflow-y-scroll items-center justify-center gap-2">
                                 {/* calender */}
                                 <div className="flex flex-col gap-3 items-baseline">
                                     <h2 className="flex gap-2 items-center">
