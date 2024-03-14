@@ -12,6 +12,7 @@
     height: 100%;
     width: 100%;
     top: 500px;
+    transition-duration: .5s;
 
 }
 
@@ -19,6 +20,11 @@
     transition-duration: .5s;
     top: 0px;
 
+}
+
+.img {
+    transform: scale(1);
+    transition-duration: .5s;
 }
 
 .card:hover .img {
@@ -46,13 +52,13 @@
         border-radius: 10px;
     }
     .img {
+        transform: scale(1);
+        transition-duration: .5s;
         border-radius: 10px;
-        
     }
     .card:hover .black-overlay {
         transition-duration: .5s;
         top: 50px;
-
     } 
     .black {
         margin-top: 350px;
@@ -72,6 +78,8 @@
         border-radius: 10px;
     }
     .img {
+        transform: scale(1);
+        transition-duration: .5s;
         border-radius: 10px;
     }
     .black {
@@ -90,6 +98,8 @@
         border-radius: 10px;
     }
     .img {
+        transform: scale(1);
+        transition-duration: .5s;
         border-radius: 10px;
     }
     .card:hover .black-overlay {

@@ -1,0 +1,140 @@
+.consult-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    background: white;
+    border-radius: 10px;
+    padding: 100px;
+}
+.online {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.online img {
+    transform: scale(1);
+    transition-duration: .5s;
+    
+}
+
+.online:hover img {
+
+    transition-duration: .5s;
+    transform: scale(1.5);
+}
+
+.consult-cover {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.89), rgba(0, 0, 0, 0.699), transparent);
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 500px;
+    left: 0;
+    transition-duration: .5s;
+}
+.online:hover .consult-cover {
+    transition-duration: .5s;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.89), rgba(0, 0, 0, 0.699), transparent);
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.consult-cover h3 {
+    transition-duration: 2s;
+    opacity: 0%;
+    margin-top: 200px;
+}
+.online:hover h3 {
+    transition-duration: 2s;
+    opacity: 100%;
+}
+
+@media (max-width: 1320px) { 
+    .consult-container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        background: white;
+        border-radius: 10px;
+        padding: 50px;
+    }
+    .online {
+        height: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .consult-text h2 {
+        margin-bottom: 10px;
+    }
+    .consult-text button {
+        font-size: 12px;
+    }
+    .consult-cover h3 {
+        margin-top: 130px;
+    }
+}
+    
+
+@media (max-width: 950px) { 
+    .consult-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        background: white;
+        border-radius: 10px;
+        padding: 50px;
+    }
+    .online {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .consult-text {
+        width: 100%;
+        text-align: center;
+    }
+    .consult-text button {
+        font-size: 12px;
+    }
+    .consult-cover h3 {
+        margin-top: 180px;
+    }
+
+}
+@media (max-width: 480px) { 
+    .online {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .consult-cover h3 {
+        margin-top: 80px;
+        font-size: 12px;
+    }
+    .consult-container {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .consult-text h2 {
+        font-size: 18px;
+        margin-bottom: 0px;
+    }
+    .consult-text button {
+        font-size: 10px;
+    }
+   
+}
