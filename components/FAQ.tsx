@@ -18,7 +18,7 @@ const FAQ = () => {
             label : "What to do if your head or neck hurts too often?",
             solution : `If a headache has become a fairly common occurrence in your life,
              you feel discomfort in the occipital or temporal region, then you can undergo a preventive 
-             examination under the “If your head hurts often” program, which will help determine the 
+             examination under the "If your head hurts often" program, which will help determine the 
              source of the headache and choose an individual treatment that will eliminate the problem 
              and restore your good health.`
         },
@@ -50,7 +50,7 @@ const FAQ = () => {
         {
             id : '5',
             label : "Are surgeries performed at your medical center?",
-            solution : `All surgical interventions that are listed in the “Services” section, in the Aesthetic 
+            solution : `All surgical interventions that are listed in the "Services" section, in the Aesthetic 
             Surgery section, are performed on the basis of our medical center. We have all the necessary and 
             modern equipment and tools for surgical interventions, and we also have the best plastic and 
             laser surgeons!`
