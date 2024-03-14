@@ -69,17 +69,7 @@
         transform: rotate(720deg);
     }
 }
-@media (max-width: 1000px) { 
 
-} 
-@media (max-width: 770px) { 
-
-} 
-@media (max-width: 620px) { 
-    .booking-card {
-        padding: 0 50px;
-    }
-} 
 @media (max-width: 560px) { 
     .container {
         display: flex;
