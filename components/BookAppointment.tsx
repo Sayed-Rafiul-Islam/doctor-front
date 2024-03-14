@@ -6,12 +6,15 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input";
 import { CalendarDays, Clock } from "lucide-react";
 import { Button } from "./ui/button";
-import "./module.bookAppointment.css"
+import "./bookAppointment.css"
 import axios from "axios";
+import { Textarea } from "./ui/textarea";
 const BookAppointment = () => {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [note, setNote] = useState('')
     const [date, setDate] = useState<Date | undefined>(new Date())
     const [timeSlot, setTimeSlot] = useState([])
     const [selectedSlot, setSelectedSlot] = useState('')
@@ -56,17 +59,31 @@ const BookAppointment = () => {
     const isPastDay = (day : any) => day < new Date()
 
     const handleBooking = async () => {
-        const data = await axios.post(`http://localhost:5000/api/appointments`,{name,email,date,selectedSlot})
+        const data = await axios.post(`http://localhost:5000/api/appointments`,{name,email,phone,note,date,selectedSlot})
     }
     return ( 
         <div className="booking-card">
             <div className="flex items-center justify-center mt-10">
                 <h1 className="my-5 font-bold text-primary lg:text-4xl md:text-3xl text-2xl">Book Appointment</h1>
             </div>
-                <label className="opacity-70">Name</label>
-                <Input onChange={(e)=>setName(e.target.value)} value={name} required className="" placeholder="John doe" />
-                <label className="opacity-70">Email</label>
-                <Input onChange={(e)=>setEmail(e.target.value)} value={email} required className="" placeholder="john@gmail.com" />
+                <div className="grid grid-cols-2 gap-2">
+                    <div>
+                        <label className="opacity-70">Name</label>
+                        <Input onChange={(e)=>setName(e.target.value)} value={name} required placeholder="John doe" />
+                    </div>
+                    <div>
+                        <label className="opacity-70">Phone</label>
+                        <Input onChange={(e)=>setPhone(e.target.value)} value={phone} required placeholder="+880197..." />
+                    </div>
+                    <div className="col-span-2">
+                        <label className="opacity-70">Email</label>
+                        <Input onChange={(e)=>setEmail(e.target.value)} value={email} required placeholder="john@gmail.com" />
+                    </div>
+                    <div className="col-span-2">
+                        <label className="opacity-70">Note</label>
+                        <Textarea onChange={(e)=>setNote(e.target.value)} value={note} placeholder="Optional" />
+                    </div>
+                </div>
                 <div className="flex justify-center">
                 <Dialog>
                     <DialogTrigger 
@@ -75,7 +92,7 @@ const BookAppointment = () => {
                         Book
                     </DialogTrigger>
                     {
-                        (name === '' || email === '') ?
+                        (name === '' || email === '' || phone === '') ?
                         <DialogContent>
                         <DialogHeader>
                             <DialogTitle className="text-red-500">Cannot Book Appointment</DialogTitle>
