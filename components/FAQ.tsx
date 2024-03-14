@@ -18,7 +18,7 @@ const FAQ = () => {
             label : "What to do if your head or neck hurts too often?",
             solution : `If a headache has become a fairly common occurrence in your life,
              you feel discomfort in the occipital or temporal region, then you can undergo a preventive 
-             examination under the "If your head hurts often" program, which will help determine the 
+             examination under the "If your head hurts often program, which will help determine the 
              source of the headache and choose an individual treatment that will eliminate the problem 
              and restore your good health.`
         },
@@ -61,7 +61,7 @@ const FAQ = () => {
             <div className="relative online w-1/2">
                 <Image className="rounded-xl shadow-lg" fill src={onlineConsult} alt="image" />
                 <div className="consult-cover">
-                    <h3 className="text-white text-center"><i>"I will be there for you whenever you need me"</i></h3>
+                    <h3 className="text-white text-center"><i>I will be there for you whenever you need me&quot;</i></h3>
                 </div>
             </div>
             <div className="w-1/2 consult-text">
