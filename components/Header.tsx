@@ -40,7 +40,7 @@ const Header = () => {
     return ( 
         <div className="flex items-center justify-between py-2 px-36 shadow-sm">
             <Image src={logo} alt="logo"/>
-            <ul className="hidden md:flex lg:flex gap-8">
+            <ul className="hidden lg:flex gap-8">
                 {
                     menu.map(({id,label,path}) => 
                     <Link prefetch 
