@@ -32,3 +32,30 @@
     transform: scaleY(1);
 }
 
+.logo {
+    height: 60px;
+    width: 100px;
+}
+
+.navbar-large {
+    display: block;
+}
+.navbar-small {
+    display: none;
+}
+
+ @media (max-width: 1110px) { 
+    .navbar-large {
+        display: none;
+    }
+    .navbar-small {
+        display: block;
+        position: fixed;
+        left: 15px;
+        top: 10px;
+    }
+}
+
+ 
+
+

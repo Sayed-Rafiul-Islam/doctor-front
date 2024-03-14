@@ -5,10 +5,25 @@ import Link from "next/link";
 import logo from '@/public/logo.svg'
 import './header.css'
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import NavbarToggle from "./ui/navbar-toogle";
 
 const Header = () => {
 
     const pathname = usePathname()
+    const [ navbar, setNavbar] = useState(false)
+
+    useEffect(() => window.addEventListener('scroll', changeBackground), []);
+    const changeBackground = () => {
+        if (window.scrollY > 100) {
+            setNavbar(true)
+        }
+        else {
+            setNavbar(false)
+        }
+
+    }
+
 
     const menu = [
         {
@@ -38,18 +53,30 @@ const Header = () => {
         }
     ]
     return ( 
-        <div className="flex items-center justify-between py-2 px-36 shadow-sm">
-            <Image src={logo} alt="logo"/>
-            <ul className="hidden lg:flex gap-8">
-                {
-                    menu.map(({id,label,path}) => 
-                    <Link prefetch 
-                    className={`${path === pathname && 'border-b-2 border-primary text-primary font-semibold'} nav-item nav-item-btn`}
-                    key={id} href={path}>{label}</Link>
-                    )
-                }
-            </ul>
+        <div>
+            <div className="navbar-small z-50">
+            <NavbarToggle />
+            </div>
+            <div className={`${navbar ? "bg-white" : "bg-transparent"} fixed w-full z-50 navbar-large`}>
+                <div className='w-11/12 mx-auto'>
+                    <div className="flex items-center justify-between shadow-sm relative">
+                        <div className="relative logo">
+                            <Image fill src={logo} alt="logo"/>
+                        </div>
+                        <ul className="hidden lg:flex gap-8">
+                            {
+                                menu.map(({id,label,path}) => 
+                                <Link prefetch 
+                                className={`${path === pathname && 'border-b-2 border-primary text-primary font-semibold'} nav-item nav-item-btn`}
+                                key={id} href={path}>{label}</Link>
+                                )
+                            }
+                        </ul>
+                    </div>
+                </div>
         </div>
+        </div>
+        
      );
 }
  
