@@ -72,7 +72,7 @@ const FAQ = () => {
                         <AccordionItem value={id}>
                             <AccordionTrigger className="font-semibold">{label}</AccordionTrigger>
                             <AccordionContent className="text-slate-400">
-                            {solution}
+                            <p>{solution}</p>
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>

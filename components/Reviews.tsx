@@ -41,7 +41,8 @@ const Reviews = () => {
       ];
       
     return ( 
-        <div>
+        <div className="lg:my-32 md:my-28 my-20">
+            <h2 className="font-bold text-4xl text-center"><span className="text-primary">Reviews</span> From Patients</h2>
             <ReviewCarousel reviews={reviews} />
         </div>
      );
