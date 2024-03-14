@@ -9,6 +9,7 @@ import { Button } from "./ui/button";
 import "./bookAppointment.css"
 import axios from "axios";
 import { Textarea } from "./ui/textarea";
+import toast, { Toaster } from "react-hot-toast";
 const BookAppointment = () => {
 
     const [name, setName] = useState('')
@@ -59,7 +60,18 @@ const BookAppointment = () => {
     const isPastDay = (day : any) => day < new Date()
 
     const handleBooking = async () => {
-        const data = await axios.post(`http://localhost:5000/api/appointments`,{name,email,phone,note,date,selectedSlot})
+        try {
+            axios.post(`http://localhost:5000/api/appointments`,{name,email,phone,note,date,selectedSlot})
+            toast.success("Appointment Booked")
+            setName('')
+            setEmail('')
+            setPhone('')
+            setNote('')
+         
+        } catch (error) {
+            toast.error("Something went wrong")
+        }
+        
     }
     return ( 
         <div className="booking-card">
@@ -159,6 +171,7 @@ const BookAppointment = () => {
                     
                 </Dialog>
                 </div>
+                <Toaster />
             </div>
      );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from 'react-hot-toast';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -24,6 +25,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+
       </body>
     </html>
   );

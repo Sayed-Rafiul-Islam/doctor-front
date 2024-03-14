@@ -7,12 +7,15 @@ import axios from "axios";
 import { Trash, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 interface AppointmentProps {
     name : string,
     email : string,
     date : string,
     selectedSlot : string,
+    note : string,
+    phone : string,
     _id : string
 }
 
@@ -36,6 +39,7 @@ const Dashboard = () => {
                 const {data} = await axios(`http://localhost:5000/api/getAppointments?token=${token}`)
                 setAppointments(data)
                 setLoading(false)
+
             } catch (error) {
 
                 setOpen(true)
@@ -71,22 +75,24 @@ const Dashboard = () => {
             loading={loading}
             />
             <div className="w-3/4 mx-auto mt-8 shadow-md py-8">
-                <h1 className="text-5xl text-center text-primary "><span className=" font-bold">Appointments</span> [{appointments.length}]</h1>
+                <h1 className="md:text-5xl text-2xl text-center text-primary "><span className=" font-bold">Appointments</span> [{appointments.length}]</h1>
                 {   !loading ? 
                     <>
                        { appointments &&
-                    appointments.map(({name,email,date,selectedSlot,_id} : AppointmentProps,index) => 
-                    <div className="flex justify-between border-b border-r border-cyan-500 rounded-md mx-auto w-3/4 my-5 p-4 bg-cyan-400 bg-opacity-10" key={_id}>
-                        <div className="">
-                            <h1 >Appointment No : <span className="font-semibold text-black">{index+1}</span></h1>
+                    appointments.map(({name,email,date,note,phone,selectedSlot,_id} : AppointmentProps,index) => 
+                    <div className="flex justify-between border-b border-r border-cyan-500 rounded-md mx-auto w-3/4 my-5 md:px-4 pl-4 bg-cyan-400 bg-opacity-10" key={_id}>
+                        <div className="py-4 w-5/6">
+                            <h1 className="text-xs md:text-lg mb-4">Appointment No : <span className="font-semibold text-black">{index+1}</span></h1>
                             <h1><span className="text-3xl font-semibold text-black">{name}</span></h1>
                             <h3 className="text-lg">{email}</h3>
-                            <p>Date : {date.split("T")[0]}</p>
-                            <p>Time Slot : {selectedSlot}</p>
+                            <h3 className="text-lg">{phone}</h3>
+                            <p className="text-xs"><i>{note}</i></p>
+                            <p className="text-sm">Date : {date.split("T")[0]}</p>
+                            <p className="text-sm">Time Slot : {selectedSlot}</p>
                         </div>
                         <Button 
                         variant='destructive' 
-                        className="bg-transparent text-red-500 hover:text-white"
+                        className="bg-transparent text-red-500 hover:text-white md:mt-4 mt-1 w-1/6"
                         onClick={()=>openModal(_id)}
                         >
                             <Trash2 />
