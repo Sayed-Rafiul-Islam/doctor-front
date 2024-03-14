@@ -8,7 +8,7 @@ import './info.css'
 const Info = () => {
     return ( 
         <div className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 mt-16">
-            <div className='flex container px-12 py-20'>
+            <div className='flex contact-container px-12 py-20'>
                 <div className='wrapper'>
                     <div className='wrapper-img'>
                         <Image fill src={location} alt='location' />
@@ -19,7 +19,7 @@ const Info = () => {
                     <p className='text-sm text-slate-400 mt-5'>United States America New York, NY 10002 543 Lane <br />Date Street</p>
                 </div>
             </div>
-            <div className='flex container px-12 py-20'>
+            <div className='flex contact-container px-12 py-20'>
                 <div className='wrapper'>
                     <div className='wrapper-img'>
                         <Image fill src={phone} alt='phone' />
@@ -30,7 +30,7 @@ const Info = () => {
                     <p className='text-sm text-slate-400 mt-5'>+7 10 34 7892 34 <br />+7 10 54 3491 44 <br />info@nordis.com</p>
                 </div>
             </div>
-            <div className='flex container px-12 py-20'>
+            <div className='flex contact-container px-12 py-20'>
                 <div className='wrapper'>
                     <div className='wrapper-img'>
                         <Image fill src={clock} alt='clock' />

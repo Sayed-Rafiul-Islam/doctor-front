@@ -71,7 +71,7 @@
 }
 
 @media (max-width: 560px) { 
-    .container {
+    .contact-container {
         display: flex;
         flex-direction: column;
         align-items: center;
