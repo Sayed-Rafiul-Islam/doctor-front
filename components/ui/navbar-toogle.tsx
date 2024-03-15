@@ -1,13 +1,19 @@
 "use client"
 import { MenuIcon } from "lucide-react";
 import { Button } from "./button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerTrigger,
+  } from "@/components/ui/drawer"
 
 
-import { useParams, usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { useState } from "react";
 
 
 
@@ -17,6 +23,8 @@ const NavbarToggle = ({
 } : React.HtmlHTMLAttributes<HTMLElement>) => {
 
     const pathname = usePathname()
+    const router = useRouter()
+    const [open,setOpen] = useState(false)
    
     const menu = [
         {
@@ -46,34 +54,36 @@ const NavbarToggle = ({
         }
     ]
     return ( 
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+        <Drawer direction="left">
+            <DrawerTrigger asChild>
                 <Button variant="outline" size="icon">
-                    <MenuIcon />
+                    <MenuIcon />    
                 </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="ml-4" align="end">
-            <nav 
-                    className={cn("flex flex-col", className)}
-                >
-                    {
-                        menu.map(({id,label,path})=>(
-                            <DropdownMenuItem key={id}  asChild >
-                            <Link 
-                                href={path}
-                                className={cn(
-                                    "text-sm font-medium transition-colors hover:text-primary ",
-                                    pathname === path && "border-l-4 border-primary text-primary font-semibold" 
-                                )}
-                            >
-                                {label}
-                            </Link>
-                            </DropdownMenuItem>
-                        ))
-                    }
-            </nav>
-            </DropdownMenuContent>
-        </DropdownMenu>
+            </DrawerTrigger>
+            <DrawerContent >
+                <nav 
+                className={cn("flex flex-col mt-5", className)}
+                    >
+                        {
+                            menu.map(({id,label,path})=>(
+                                <Link 
+                                onClick={()=>router.refresh()}
+                                key={id}
+                                    href={path}
+                                    className={cn(
+                                        "text-sm font-medium transition-colors hover:text-primary w-full pl-4 my-1 text-slate-500",
+                                        pathname === path && "border-l-4 border-primary text-primary font-semibold" 
+                                    )}
+                                >
+                                    <DrawerClose>
+                                    {label}
+                                    </DrawerClose>
+                                </Link>
+                            ))
+                        }
+                </nav>
+            </DrawerContent>
+            </Drawer>
      );
 }
  
