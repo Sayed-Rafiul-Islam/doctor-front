@@ -1,43 +1,45 @@
-.doc-container {
+.about-doc-container {
     width: 50%;
     height: 500px;
 }
 
 @media (max-width: 1025px) { 
-    .doc-container {
+    .about-doc-container {
         width: 100%;
         height: 800px;
-        margin-left: 50px;
+        margin-left: 20px;
     }
 }
 @media (max-width: 900px) { 
-    .doc-container {
+    .about-doc-container {
         width: 100%;
         height: 600px;
-        margin-left: 50px;
+        margin-left: 20px;
     }
 }
 @media (max-width: 765px) { 
-    .doc-container {
+    .about-doc-container {
         width: 100%;
         height: 600px;
-        margin-left: 90px;
+        margin-left: 20px;
     }
 }
 @media (max-width: 680px) { 
-    .doc-container {
+    .about-doc-container {
         width: 100%;
         height: 440px;
+        margin-left: 15px;
     }
 }
 @media (max-width: 480px) { 
-    .doc-container {
+    .about-doc-container {
         width: 100%;
         height: 340px;
+        margin-left: 14px;
     }
 }
 @media (max-width: 380px) { 
-    .doc-container {
+    .about-doc-container {
         width: 100%;
         height: 240px;
     }

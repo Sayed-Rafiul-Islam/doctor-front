@@ -1,5 +1,5 @@
 import Image from "next/image";
-import doc from '@/images/doc1.png'
+import doc from '@/images/doc.png'
 import './about.css'
 
 const About = () => {
@@ -36,7 +36,7 @@ const About = () => {
                         fulfilling lives with healthy hearts.
                     </p>
                 </div>
-                <div className='doc-container relative mx-auto'>
+                <div className='about-doc-container relative mx-auto'>
                     <Image fill src={doc} alt='doc' />
                 </div>
             </div>
