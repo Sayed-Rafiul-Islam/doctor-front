@@ -158,7 +158,7 @@ const BookAppointment = () => {
                         <DialogHeader>
                         <DialogTitle className="text-center">Book Appointment</DialogTitle>
                         <DialogDescription>
-                            <div className="flex lg:flex-row md:flex-row flex-col lg:pt-0 md:pt-0 pt-48 max-h-[550px] items-center justify-center gap-2">
+                            <div className="max-h-[550px] items-center justify-center gap-2">
                                 <div className="mt-3">
                                     <h2 className="flex gap-2 items-center justify-center mb-3">
                                         <Clock className="text-cyan-500" size={15}/>
