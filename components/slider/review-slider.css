@@ -2,7 +2,7 @@
     width: 40%;
 }
 .img-container {
-    height: 500px;
+    height: 450px;
     width: 500px;
     border-radius: 10px;
 }
@@ -11,9 +11,8 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 500px;
+    top: 450px;
     transition-duration: .5s;
-
 }
 
 .card:hover .black-overlay {
@@ -37,7 +36,7 @@
     transition-duration: .5s;
 }
 .black {
-    margin-top: 400px;
+    margin-top: 350px;
     margin-left: 40px;
 }
 
@@ -47,7 +46,7 @@
     }
     .img-container {
 
-        height: 500px;
+        height: 450px;
         width: 500px;
         border-radius: 10px;
     }
@@ -61,7 +60,7 @@
         top: 50px;
     } 
     .black {
-        margin-top: 350px;
+        margin-top: 300px;
         margin-left: 40px;
     }
 
@@ -83,7 +82,7 @@
         border-radius: 10px;
     }
     .black {
-        margin-top: 200px;
+        margin-top: 180px;
         margin-left: 10px;
     }
 
