@@ -1,5 +1,5 @@
 import Image from "next/image";
-import doc from '@/images/doc.png'
+import doc from '@/images/doc1.png'
 import './about.css'
 
 const About = () => {
