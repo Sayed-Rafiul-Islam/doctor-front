@@ -57,7 +57,7 @@ const Header = () => {
             <div className="navbar-small z-50">
             <NavbarToggle />
             </div>
-            <div className={`${navbar ? "bg-white" : "bg-transparent"} fixed w-full z-50 navbar-large`}>
+            <div className={`${navbar ? "bg-white shadow-lg rounded-b-2xl" : "bg-transparent"} fixed w-full z-50 navbar-large transition-all duration-500`}>
                 <div className='w-11/12 mx-auto'>
                     <div className="flex items-center justify-between shadow-sm relative">
                         <div className="relative logo">
