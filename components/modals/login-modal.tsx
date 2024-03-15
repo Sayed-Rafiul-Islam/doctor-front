@@ -34,7 +34,7 @@ export const LoginModal : React.FC<LoginModalProps> = ({
 
     const login = async () => {
         try {
-            const {data} = await axios.post(`http://localhost:5000/api/login`,{email,password})
+            const {data} = await axios.post(`https://doctor-portfolio-server.vercel.app/api/login`,{email,password})
             localStorage.setItem("accessToken", data.accessToken)
             return onConfirm()
         } catch (error : any) {

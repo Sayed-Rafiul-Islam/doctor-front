@@ -61,7 +61,7 @@ const BookAppointment = () => {
 
     const handleBooking = async () => {
         try {
-            axios.post(`http://localhost:5000/api/appointments`,{name,email,phone,note,date,selectedSlot})
+            axios.post(`https://doctor-portfolio-server.vercel.app/api/appointments`,{name,email,phone,note,date,selectedSlot})
             toast.success("Appointment Booked")
             setName('')
             setEmail('')

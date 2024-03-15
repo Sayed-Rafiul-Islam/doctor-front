@@ -1,9 +1,4 @@
 import { ReviewCarousel } from "./slider/review-slider";
-// 
-// 
-// 
-// 
-// 
 
 const Reviews = () => {
 
