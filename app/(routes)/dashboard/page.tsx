@@ -4,7 +4,7 @@ import { AlertModal } from "@/components/modals/alert-modal";
 import { LoginModal } from "@/components/modals/login-modal";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import { Trash, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -53,11 +53,16 @@ const Dashboard = () => {
         setDeleteModal(true)
     }
 
-    const removeAppointment = () => {
-        const updatedAppointments = appointments.filter(({_id}) => targetedId !== _id)
-        setAppointments(updatedAppointments)
-        setDeleteModal(false)
-        toast.success("Appointment Removed.")
+    const removeAppointment = async () => {
+        try {
+            await axios.delete(`https://doctor-portfolio-server.vercel.app/api/removeAppointment?id=${targetedId}`)
+            const updatedAppointments = appointments.filter(({_id}) => targetedId !== _id)
+            setAppointments(updatedAppointments)
+            setDeleteModal(false)
+            toast.success("Appointment Removed.")
+        } catch (error) {
+            toast.error("Something went wrong.")
+        }
     }
 
     return ( 

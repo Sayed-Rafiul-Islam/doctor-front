@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -31,14 +31,8 @@ const BookAppointment = () => {
         const convertedDate = (year+"-"+month+"-"+day)
         if ( convertedDate !== '') {
             try {
-                const {data} = await axios(`http://localhost:5000/api/getTimeSlots?date=${convertedDate}`)
-                setTimeSlot(data)
-                toast.success("Appointment Booked")
-                setName('')
-                setEmail('')
-                setPhone('')
-                setNote('')
-             
+                const {data} = await axios(`https://doctor-portfolio-server.vercel.app/api/getTimeSlots?date=${convertedDate}`)
+                setTimeSlot(data)        
             } catch (error) {
                 toast.error("Something went wrong")
             }
@@ -52,7 +46,7 @@ const BookAppointment = () => {
             const month = temp.split("-")[1]
             const day = parseInt(temp.split("-")[2]) + 1
             const convertedDate = (year+"-"+month+"-"+day)
-            axios.post(`http://localhost:5000/api/appointments`,{name,email,phone,note,date : convertedDate,selectedSlot})
+            axios.post(`https://doctor-portfolio-server.vercel.app/api/appointments`,{name,email,phone,note,date : convertedDate,selectedSlot})
             toast.success("Appointment Booked")
             setName('')
             setEmail('')
@@ -144,7 +138,7 @@ const BookAppointment = () => {
                         View Time Slots
                     </DialogTrigger>
                     {
-                        (name === '' || email === '' || phone === '') ?
+                        (name === '' || email === '' || phone === '' || !date) ?
                         <DialogContent>
                         <DialogHeader>
                             <DialogTitle className="text-red-500">Cannot Book Appointment</DialogTitle>
@@ -166,10 +160,10 @@ const BookAppointment = () => {
                         <DialogDescription>
                             <div className="flex lg:flex-row md:flex-row flex-col lg:pt-0 md:pt-0 pt-48 max-h-[550px] items-center justify-center gap-2">
                                 <div className="mt-3">
-                                    <h2 className="flex gap-2 items-center mb-3">
-                                            <Clock className="text-cyan-500" size={15}/>
-                                            Select Time Slot
-                                        </h2>
+                                    <h2 className="flex gap-2 items-center justify-center mb-3">
+                                        <Clock className="text-cyan-500" size={15}/>
+                                        Select Time Slot
+                                    </h2>
                                     <div className="grid grid-cols-3 gap-2 border rounded-lg p-3">
                                         {   timeSlot &&
                                             timeSlot.map((time,index) => 
@@ -189,7 +183,7 @@ const BookAppointment = () => {
                         <DialogFooter className="mx-auto">
                             <DialogClose>
                                 <Button className="mr-4" type="button" variant='destructive'>Close</Button>
-                                <Button onClick={handleBooking} type="button" variant='default'>Book</Button>
+                                <Button onClick={()=>handleBooking()} type="button" variant='default'>Book</Button>
                             </DialogClose>
                         </DialogFooter>
                     </DialogContent>
