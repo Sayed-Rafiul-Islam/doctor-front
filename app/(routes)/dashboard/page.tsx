@@ -57,6 +57,7 @@ const Dashboard = () => {
         const updatedAppointments = appointments.filter(({_id}) => targetedId !== _id)
         setAppointments(updatedAppointments)
         setDeleteModal(false)
+        toast.success("Appointment Removed.")
     }
 
     return ( 
@@ -80,23 +81,30 @@ const Dashboard = () => {
                     <>
                        { appointments &&
                     appointments.map(({name,email,date,note,phone,selectedSlot,_id} : AppointmentProps,index) => 
-                    <div className="flex justify-between border-b border-r border-cyan-500 rounded-md mx-auto w-3/4 my-5 md:px-4 pl-4 bg-cyan-400 bg-opacity-10" key={_id}>
-                        <div className="py-4 w-5/6">
-                            <h1 className="text-xs md:text-lg mb-4">Appointment No : <span className="font-semibold text-black">{index+1}</span></h1>
-                            <h1><span className="text-3xl font-semibold text-black">{name}</span></h1>
-                            <h3 className="text-lg">{email}</h3>
-                            <h3 className="text-lg">{phone}</h3>
-                            <p className="text-xs"><i>{note}</i></p>
-                            <p className="text-sm">Date : {date.split("T")[0]}</p>
-                            <p className="text-sm">Time Slot : {selectedSlot}</p>
+                    <div className="flex overflow-hidden justify-between border-b border-r border-cyan-500 
+                    rounded-md mx-auto w-3/4 my-5 md:pl-4 pl-2 bg-cyan-400 bg-opacity-10
+                    hover:scale-105 hover:shadow-lg hover:bg-white hover:bg-opacity-30 transition-all" key={_id}>
+                        <div className="py-2 w-full flex flex-col px-0 md:px-2">
+                            <div className="flex items-center justify-between border-b border-cyan-200 rounded-lg py-2">
+                                <h1 className="text-xs md:text-sm">Appt. No : <span className="font-semibold text-black">{index+1}</span></h1>
+                                <Button 
+                                    variant='destructive' 
+                                    className="bg-transparent text-red-500 hover:text-white ml-20 p-2"
+                                    onClick={()=>openModal(_id)}
+                                    >
+                                        <Trash2 />
+                                </Button>
+                            </div>
+                            <div className="px-2">
+                                <h1><span className="text-3xl font-semibold text-cyan-500">{name}</span></h1>
+                                <h3 className="mb-2">{email} | {phone}</h3>
+                                <p className="text-xs text-slate-700 pr-6"><i>{note}</i></p>
+                                <div className="my-2">
+                                    <p className="text-xs font-semibold">Date : {date.split("T")[0]}</p>
+                                    <p className="text-xs font-semibold">Time Slot : {selectedSlot}</p>
+                                </div>
+                            </div>
                         </div>
-                        <Button 
-                        variant='destructive' 
-                        className="bg-transparent text-red-500 hover:text-white md:mt-4 mt-1 w-1/6"
-                        onClick={()=>openModal(_id)}
-                        >
-                            <Trash2 />
-                        </Button>
 
                     </div>
                     )}

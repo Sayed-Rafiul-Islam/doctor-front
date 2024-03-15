@@ -80,15 +80,15 @@ const BookAppointment = () => {
             </div>
                 <div className="grid grid-cols-2 gap-2">
                     <div>
-                        <label className="opacity-70">Name</label>
+                        <label className="opacity-70">Name <span className="text-red-500">*</span></label>
                         <Input onChange={(e)=>setName(e.target.value)} value={name} required placeholder="John doe" />
                     </div>
                     <div>
-                        <label className="opacity-70">Phone</label>
+                        <label className="opacity-70">Phone <span className="text-red-500">*</span></label>
                         <Input onChange={(e)=>setPhone(e.target.value)} value={phone} required placeholder="+880197..." />
                     </div>
                     <div className="col-span-2">
-                        <label className="opacity-70">Email</label>
+                        <label className="opacity-70">Email <span className="text-red-500">*</span></label>
                         <Input onChange={(e)=>setEmail(e.target.value)} value={email} required placeholder="john@gmail.com" />
                     </div>
                     <div className="col-span-2">
