@@ -1,6 +1,7 @@
 "use client"
 
 import { AlertModal } from "@/components/modals/alert-modal";
+import { FilterModal } from "@/components/modals/filter-modal";
 import { LoginModal } from "@/components/modals/login-modal";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
@@ -24,7 +25,10 @@ const Dashboard = () => {
     const router = useRouter()
 
     const [appointments, setAppointments] = useState([])
+    const [isFilter, setIsFilter] = useState(false)
+    const [all, setAll] = useState([])
     const [open, setOpen] = useState(false)
+    const [filterModal, setFilterModal] = useState(false)
     const [deleteModal, setDeleteModal] = useState(false)
     const [loading, setLoading] = useState(false)
     const [fetch, setFetch] = useState(false)
@@ -37,6 +41,7 @@ const Dashboard = () => {
                 setOpen(false)
                 setLoading(true)
                 const {data} = await axios(`https://doctor-portfolio-server.vercel.app/api/getAppointments?token=${token}`)
+                setAll(data)
                 setAppointments(data)
                 setLoading(false)
 
@@ -65,12 +70,39 @@ const Dashboard = () => {
         }
     }
 
+    const dateFilter = (from : string, to : string) => {
+        if( from > to) {
+            toast.error("From Date must be less than To Date")
+        } else {
+        const filtered = appointments.filter((item : any) => {
+            if ( from+'T18:00:00.000Z' <= item.date && to+'T18:00:00.000Z' >= item.date) {
+                return item
+            }
+        })
+        setIsFilter(true)
+        setAppointments(filtered)
+        setFilterModal(false)
+        }
+    }
+
+    const showAll =  () => {
+        setAppointments(all)
+        setIsFilter(false)
+    }
+
     return ( 
         <div>
             <LoginModal
                 isOpen={open} 
                 onClose={()=>router.push('/')} 
                 onConfirm={()=>setFetch(!fetch)} 
+                loading={loading}
+                
+            />
+            <FilterModal
+                isOpen={filterModal} 
+                onClose={()=>setFilterModal(false)} 
+                onConfirm={({from,to})=>dateFilter(from,to)} 
                 loading={loading}
                 
             />
@@ -81,7 +113,12 @@ const Dashboard = () => {
             loading={loading}
             />
             <div className="w-3/4 mx-auto mt-8 shadow-md py-8">
-                <h1 className="md:text-5xl text-2xl text-center text-primary "><span className=" font-bold">Appointments</span> [{appointments.length}]</h1>
+                <h1 className="md:text-5xl text-2xl text-center text-primary "><span className=" font-bold">{isFilter ? "Filtered" : "Appointments"}</span> [{appointments.length}]</h1>
+                <div className="flex flex-col md:flex-row md:justify-end gap-2 md:w-3/4 w-1/2 mx-auto mt-10">
+                    <Button variant='default' onClick={()=>setFilterModal(true)} >Filter by Date</Button>
+                    <Button disabled={!isFilter} variant='outline' onClick={showAll} >Show All</Button>
+                </div>
+                <div>
                 {   !loading ? 
                     <>
                        { appointments &&
@@ -138,6 +175,7 @@ const Dashboard = () => {
                     </>
                     
                 }
+                </div>
             </div>
         </div>
      );
