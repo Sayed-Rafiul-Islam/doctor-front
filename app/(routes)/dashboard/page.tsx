@@ -74,8 +74,8 @@ const Dashboard = () => {
         if( from > to) {
             toast.error("From Date must be less than To Date")
         } else {
-        const filtered = appointments.filter((item : any) => {
-            if ( from+'T18:00:00.000Z' <= item.date && to+'T18:00:00.000Z' >= item.date) {
+        const filtered = all.filter((item : any) => {
+            if ( from+'T00:00:00.000Z' <= item.date && to+'T23:59:59.000Z' >= item.date) {
                 return item
             }
         })
